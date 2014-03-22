@@ -1,0 +1,35 @@
+<%- partial('_partial/head') %>
+
+<body>
+  <header id="header" class="inner"><%- partial('_partial/header') %></header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><%- body %></div></div>
+    <aside id="sidebar" class="alignright"><%- partial('_partial/sidebar') %></aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><%- partial('_partial/footer') %></footer>
+  <%- partial('_partial/after_footer') %>
+
+<!--返回顶部-->
+<script type="text/javascript">
+$(function(){
+    $("body").append("<a href='javascript:void(0);' id='gotop' onfocus='this.blur()'></a>");
+    $(window).bind('scroll',function() {
+        var w_scrollTop = $(window).scrollTop();
+        if(w_scrollTop > 150){
+            $("#gotop").fadeIn(300);
+        }
+        else if(w_scrollTop < 200){
+            $("#gotop").fadeOut(300);
+        }
+    });
+    $("#gotop").click(function() {
+        $("html,body").animate({scrollTop:0}, 300);
+        return false;
+    });    
+});
+</script>
+<!--返回顶部-->
+
+</body>
+</html>
